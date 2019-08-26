@@ -1,7 +1,9 @@
 // App.js will be my main component, the meeting of the other components
 import React, {Component} from 'react';
-import Contact from "./components/Contact"
+import Contacts from "./components/Contacts";
 import './App.css';
+import Header from "./components/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   
@@ -26,9 +28,12 @@ class App extends Component {
     return (
       // mesa sto return epistrefw jsx, to jsx einai to output mou, paragei sthn ousia html
       <div className="App">
-        <h1>The App Component</h1>
+        <Header branding = "Contact Manager"/>
+        <div className="container">
+        <Contacts/>
+        </div>
         {/* {itBe} */}
-        {<Contact/>}
+        
       </div>
     );
   }
