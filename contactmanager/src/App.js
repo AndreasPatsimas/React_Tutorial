@@ -1,9 +1,14 @@
 // App.js will be my main component, the meeting of the other components
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Contacts from "./components/contacts/Contacts";
 import AddContact from "./components/contacts/AddContact";
+import EditContact from "./components/contacts/EditContact";
 import './App.css';
 import Header from "./components/layout/Header";
+import About from "./components/pages/About";
+import NotFound from "./components/pages/NotFound";
+import Test from "./components/test/Test";
 import {Provider} from './context';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -30,15 +35,30 @@ class App extends Component {
     return (
       // mesa sto return epistrefw jsx, to jsx einai to output mou, paragei sthn ousia html
       <Provider>
+        <Router>
         <div className="App">
           <Header branding = "Contact Manager"/>
           <div className="container">
-            <AddContact/>
-            <Contacts/>
+            <Switch>
+              
+              <Route exact path = "/" component = {Contacts}/>
+
+              <Route exact path = "/contact/add" component = {AddContact}/>
+
+              <Route exact path = "/contact/edit/:id" component = {EditContact}/>
+
+              <Route exact path = "/about" component = {About}/>
+
+              <Route exact path = "/test" component = {Test}/>
+
+              <Route component = {NotFound}/>
+
+            </Switch>
           </div>
           {/* {itBe} */}
           
         </div>
+        </Router>
       </Provider>
     );
   }
