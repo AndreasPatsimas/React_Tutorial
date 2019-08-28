@@ -1,5 +1,8 @@
-const initialState = {};
+const initialState = {
+  // contacts: [],
+  // contact: {}
+};
 
-export default function(state = initialState, action){
-
+export default function(state = initialState, action) {
+  
 }
